@@ -1,0 +1,5 @@
+openvpn/pki
+openvpn/helm/openvpn-server/templates/server_secrets.yaml
+openvpn/helm/openvpn-client/templates/client_secret.yaml
+openvpn/ipp.txt 
+openvpn/openvpn-status.log

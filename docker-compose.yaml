@@ -1,0 +1,28 @@
+version: '3'
+services:
+  openvpn-server:
+    build: .
+    image: mattiashem/openvpn
+    volumes:
+      - ./openvpn:/openvpn/
+      - ./openvpn/pki/private/server.key:/etc/openvpn/certs/server.key
+      - ./openvpn/pki/issued/server.crt:/etc/openvpn/certs/server.crt
+      - ./openvpn/pki/ca.crt:/etc/openvpn/certs/ca.crt
+      - ./openvpn/pki/dh.pem:/etc/openvpn/certs/dh.pem
+      - ./openvpn/pki/ta.key:/etc/openvpn/certs/ta.key
+      - ./openvpn/server.conf:/etc/openvpn/conf/openvpn.conf
+    privileged: true
+  openvpn-client:
+    build: .
+    image: mattiashem/openvpn
+    volumes:
+      - ./openvpn/pki/private/client1.key:/etc/openvpn/certs/client.key
+      - ./openvpn/pki/issued/client1.crt:/etc/openvpn/certs/client.crt
+      - ./openvpn/pki/ca.crt:/etc/openvpn/certs/ca.crt
+      - ./openvpn/pki/dh.pem:/etc/openvpn/certs/dh.pem
+      - ./openvpn/pki/ta.key:/etc/openvpn/certs/ta.key
+      - ./openvpn/client.conf:/etc/openvpn/conf/openvpn.tpl
+    environment:
+      - OPENVPNSERVER="remote.vpn.com"
+    privileged: true
+    command: ./clientStart.sh
