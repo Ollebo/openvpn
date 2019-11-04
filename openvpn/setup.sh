@@ -34,4 +34,4 @@ env
 echo "Generating helm secrets file"
 
 envsubst < "/openvpn/helmTemplates/server_secrets.yaml" > "/openvpn/helm/openvpn-server/templates/server_secrets.yaml"
-envsubst < "/openvpn/helmTemplt_secret.yaml" > "/openvpn/helm/openvpn-client/templates/client_secret.yaml"
+envsubst < "/openvpn/helmTemplates/client_secret.yaml" > "/openvpn/helm/openvpn-client/templates/client_secret.yaml"

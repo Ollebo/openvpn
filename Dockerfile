@@ -18,6 +18,7 @@ WORKDIR /openvpn
 
 #Copy in client start
 COPY openvpn/clientStart.sh .
+COPY openvpn/client.conf /etc/openvpn/tpl/openvpn.tpl
 RUN chmod +x clientStart.sh
 
 CMD ["openvpn","--config","/etc/openvpn/conf/openvpn.conf"]

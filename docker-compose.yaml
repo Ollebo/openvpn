@@ -14,7 +14,6 @@ services:
     privileged: true
   openvpn-client:
     build: .
-    image: mattiashem/openvpn
     volumes:
       - ./openvpn/pki/private/client1.key:/etc/openvpn/certs/client.key
       - ./openvpn/pki/issued/client1.crt:/etc/openvpn/certs/client.crt

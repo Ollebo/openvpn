@@ -7,7 +7,7 @@ I use them to connect kubernetes to kubernetes ore docker to kubernetes cluster
 ### Fetures
 
 - Simple generat of certs
-- Auto setup of heöm secrets
+- Auto setup of helm secrets
 - Simple run in docker with docker-compose
 - Helm deploys of server and client
 
@@ -39,15 +39,30 @@ Now we should hava a working PKI and helm charts so lets run in.
 
 ## Run it openvpn server
 
-With docker-compose
+#### With docker-compose
 
 ```
 docker-compose up 
 ```
+the docker-compose file has eboth the server and client so remove the one you dont want
 
-With helm
+#### With helm
 
 ```
 helm install openvpn/helm/openvpn-server/ --name openvpn
 ```
 
+## Run it openvpn client
+
+#### with docker-compose
+
+```
+docker-compose up
+```
+the docker-compose file has eboth the server and client so remove the one you dont want
+
+#### With helm
+
+```
+helm install openvpn/helm/openvpn-client/ --name openvpn-client
+```
